@@ -15,59 +15,40 @@ h2{text-align:center;color:#777;letter-spacing:4px;font-size:14px;text-transform
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
 .grid img{width:100%;height:260px;object-fit:cover;border-radius:15px;filter:grayscale(100%);transition:.6s}
 .grid img:hover{filter:grayscale(0%);transform:scale(1.03)}
-.music{ background:#1a1a1a;padding:30px;border-radius:20px;text-align:center;border:1px solid #333}
+.music{background:#1a1a1a;padding:30px;border-radius:20px;text-align:center;border:1px solid #333}
 audio{width:100%;margin-top:15px}
-.btn{display:block;margin:40px auto;padding:16px 50px;background:#d1d1d1;color:#000;border:none;border-radius:50px;font-weight:bold;cursor:pointer}
-.btn:hover{background:white;transform:scale(1.05)}
+.btn{display:block;margin:40px auto;padding:16px 50px;background:#d1d1d1;color:#000;border:none;border-radius:50px;font-weight:bold;font-size:18px;letter-spacing:2px;cursor:pointer}
 #final{display:none;text-align:center}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg)}100%{transform:translateY(110vh) rotate(720deg)}}
 </style>
 </head>
 <body>
 
-<div class="hero">
-<h1>🩶</h1>
-<p style="color:#555;letter-spacing:5px;">FOR YOU</p>
-</div>
+<div class="hero"><h1>🩶</h1><p style="color:#555;letter-spacing:5px;">FOR YOU</p></div>
 
-<section>
-<h2>💌 Message for you</h2>
-<div class="message">
-when you say you love me<br>
-now I love you more<br><br>
-and when you say you love me<br>
-now I love you more 🩶
-</div>
-</section>
+<section><h2>💌 Message for you</h2><div class="message">when you say you love me<br>now I love you more<br><br>and when you say you love me<br>now I love you more 🩶</div></section>
 
-<section>
-<h2>📸 Mr. Handsome</h2>
-<div class="grid">
-<img src="IMG-20260924-WA0101.jpg">
-<img src="IMG-20260924-WA0091.jpg">
-<img src="IMG-20260924-WA0105.jpg">
-<img src="IMG-20260924-WA0104.jpg">
-</div>
-</section>
+<section><h2>📸 Mr. Handsome</h2><div class="grid"><img src="IMG-20260924-WA0101.jpg"><img src="IMG-20260924-WA0091.jpg"><img src="IMG-20260924-WA0105.jpg"><img src="IMG-20260924-WA0104.jpg"></div></section>
 
-<section>
-<h2>🎵 Music</h2>
-<div class="music">
-<p style="color:#999;">Zac Efron, Zendaya - Rewrite The Stars</p>
-<audio controls autoplay loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
-</div>
-</section>
+<section><h2>🎵 Music</h2><div class="music"><p>Zac Efron, Zendaya - Rewrite The Stars</p><audio controls autoplay loop><source src="music.mp3" type="audio/mpeg"></audio></div></section>
 
 <section>
 <h2>🎁 My Final Words</h2>
-<button class="btn" onclick="document.getElementById('final').style.display='block';window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})">OPEN HERE ✨</button>
+<button class="btn" onclick="openSurprise()">OPEN HERE</button>
 <div id="final">
-<h1 style="font-size:28px;font-style:italic;line-height:1.5;"><br> I love you more 🩶</h1>
-<p style="color:#666;margin-top:20px;">✨ you make my grey world colorful ✨</p>
+<div style="background:#181818;border:1px solid #2a2a2a;padding:40px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+<h1 style="font-size:35px;letter-spacing:3px;">I LOVE YOU MORE 🩶</h1>
+</div>
 <img src="IMG-20260924-WA0105.jpg" style="width:80%;max-width:300px;border-radius:20px;margin-top:25px;filter:grayscale(100%)">
 </div>
 </section>
 
+<script>
+function openSurprise(){
+document.getElementById('final').style.display='block';
+window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+for(let i=0;i<100;i++){let c=document.createElement('div');c.innerHTML='🩶';c.style.position='fixed';c.style.left=Math.random()*100+'vw';c.style.top='-20px';c.style.fontSize=(Math.random()*20+10)+'px';c.style.animation=`fall ${Math.random()*3+2}s linear`;c.style.zIndex=9999;document.body.appendChild(c);setTimeout(()=>c.remove(),5000);}
+}
+</script>
 </body>
-  </html>
+</html>
