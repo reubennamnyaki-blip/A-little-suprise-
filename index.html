@@ -1,41 +1,85 @@
-1<section class="memories">
-  <h2>📸 </h2>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grey Surprise 🩶</title>
+<style>
+body{margin:0;background:#0f0f0f;color:#ccc;font-family:Arial,sans-serif;overflow-x:hidden}
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(#222,#0f0f0f);text-align:center}
+.hero h1{font-size:60px;animation:beat 1.5s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+section{padding:70px 20px;max-width:800px;margin:auto}
+h2{text-align:center;color:#777;letter-spacing:4px;font-size:14px;text-transform:uppercase;margin-bottom:35px}
+.message{background:#181818;border:1px solid #2a2a2a;padding:40px;border-radius:20px;text-align:center;font-size:22px;line-height:1.8;font-style:italic;animation:fade 2s}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.grid img{width:100%;height:260px;object-fit:cover;border-radius:15px;filter:grayscale(100%);transition:.6s}
+.grid img:hover{filter:grayscale(0%);transform:scale(1.03)}
+.music{ background:#1a1a1a;padding:30px;border-radius:20px;text-align:center;border:1px solid #333}
+audio{width:100%;margin-top:15px}
+.btn{display:block;margin:40px auto;padding:16px 50px;background:#d1d1d1;color:#000;border:none;border-radius:50px;font-weight:bold;letter-spacing:1px;cursor:pointer;transition:.3s}
+.btn:hover{background:white;transform:scale(1.05)}
+#final{display:none;text-align:center;animation:fade 1s}
+.spark{position:fixed;pointer-events:none;width:100%;height:100%;top:0;left:0}
+.dot{position:absolute;width:3px;height:3px;background:#555;border-radius:50%;animation:up linear infinite}
+@keyframes up{0%{transform:translateY(100vh);opacity:0}50%{opacity:1}100%{transform:translateY(-10vh);opacity:0}}
+</style>
+</head>
+<body>
 
-  <div class="memory-grid">
-    <img src="IMG-20260924-WA0101.jpg" alt="Memory 1">
-    <img src="IMG-20260924-WA0091.jpg" alt="Memory 2">
-    <img src="IMG-20260924-WA0105.jpg" alt="Memory 3">
-    <img src="IMG-20260924-WA0104.jpg" alt="Memory 4">
-  </div>
+<div class="spark" id="spark"></div>
+
+<div class="hero">
+<h1>🩶</h1>
+<p style="color:#555;letter-spacing:5px;">FOR YOU</p>
+</div>
+
+<section>
+<h2>💌 Message for you</h2>
+<div class="message">
+when you say you love me<br>
+now I love you more<br><br>
+and when you say you love me<br>
+now I love you more 🩶
+</div>
 </section>
 
-<style>
-.memories {
-  padding: 40px 20px;
-  text-align: center;
-}
+<section>
+<h2>📸 Mr. Handsome</h2>
+<div class="grid">
+<img src="IMG-20260924-WA0101.jpg">
+<img src="IMG-20260924-WA0091.jpg">
+<img src="IMG-20260924-WA0105.jpg">
+<img src="IMG-20260924-WA0104.jpg">
+</div>
+</section>
 
-.memories h2 {
-  color: #ddd;
-  margin-bottom: 25px;
-}
+<section>
+<h2>🎵 Music</h2>
+<div class="music">
+<p style="color:#999;">Cedric Gervais ft. Miley Cyrus - Adore You</p>
+<audio controls loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+<p style="font-size:10px;color:#444;margin-top:10px;">upload file yako kama song.mp3</p>
+</div>
+</section>
 
-.memory-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
+<section>
+<h2>🎁 message</h2>
+<button class="btn" onclick="openSurprise()">FUNGUA SURPRISE ✨</button>
+<div id="final">
+<h1 style="font-size:28px;font-style:italic;line-height:1.5;">when you say you love me<br>now I love you more 🩶</h1>
+<p style="color:#666;margin-top:20px;">✨ you make my grey world colorful ✨</p>
+<img src="IMG-20260924-WA0105.jpg" style="width:80%;max-width:300px;border-radius:20px;margin-top:25px;filter:grayscale(100%)">
+</div>
+</section>
 
-.memory-grid img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 18px;
-  border: 1px solid #555;
-  transition: 0.4s;
-}
-
-.memory-grid img:hover {
-  transform: scale(1.04);
-}
-</style>
+<script>
+function openSurprise(){document.getElementById('final').style.display='block';window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})}
+let s=document.getElementById('spark');
+for(let i=0;i<40;i++){let d=document.createElement('div');d.className='dot';d.style.left=Math.random()*100+'vw';d.style.animationDuration=(Math.random()*3+3)+'s';d.style.animationDelay=Math.random()*2+'s';s.appendChild(d)}
+</script>
+</body>
+</html>
